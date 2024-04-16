@@ -1,5 +1,3 @@
-import Ember from 'ember';
-
 // Reserved keys, per the HAL spec
 let halReservedKeys = ['_embedded', '_links'],
   reservedKeys = halReservedKeys.concat(['meta']),
@@ -52,7 +50,7 @@ function arrayFlatten(array) {
   return flattened.concat.apply(flattened, array);
 }
 
-export default Ember.Mixin.create({
+export default new Object({
   keyForRelationship(relationshipKey/*, relationshipMeta */) {
     return relationshipKey;
   },
@@ -193,14 +191,14 @@ export default Ember.Mixin.create({
   },
 
   extractRelationship(relationshipModelClass, payload, included) {
-    if (Ember.isNone(payload)) {
+    if (payload == null || payload == undefined) {
       return undefined;
     }
 
     let relationshipModelName = relationshipModelClass.modelName,
       relationship;
 
-    if (Ember.typeOf(payload) === 'object') {
+    if (typeof payload === 'object') {
       relationship = {
         id: coerceId(this.extractId({}, payload))
       };
