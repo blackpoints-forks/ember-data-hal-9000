@@ -1,6 +1,6 @@
 /* jshint node: true */
-'use strict';
+"use strict";
 
 module.exports = {
-  name: 'ember-data-hal-9000'
+  name: "ember-data-hal-9000",
 };
