@@ -1,5 +1,4 @@
-import DS from "ember-data";
-import Mixin from './mixin';
+import JSONAPISerializer from "@ember-data/serializer/json-api";
+import Mixin from "./mixin";
 
-export default DS.JSONAPISerializer.extend(Mixin, {
-});
+export default JSONAPISerializer.extend(Mixin, {});
